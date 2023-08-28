@@ -8,52 +8,52 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.erudio.utils.MathUtils;
 
 @RestController
-public class MathController extends MathUtils{
+public class MathController {
 	
 	@RequestMapping(value = "/sum/{numberOne}/{numberTwo}",method = RequestMethod.GET)	
 	public Double sum(@PathVariable(value = "numberOne") String numberOne,
 					  @PathVariable(value = "numberTwo") String numberTwo){
 		
-		checkTwoNumbers(numberOne,numberTwo);
-		return convertToDouble(numberOne) + convertToDouble(numberTwo);
+		MathUtils.checkTwoNumbers(numberOne,numberTwo);
+		return MathUtils.convertToDouble(numberOne) + MathUtils.convertToDouble(numberTwo);
 	}
 	
 	@RequestMapping(value = "/subtraction/{numberOne}/{numberTwo}",method = RequestMethod.GET)	
 	public Double subtraction(@PathVariable(value = "numberOne") String numberOne,
 			@PathVariable(value = "numberTwo") String numberTwo){
 		
-		checkTwoNumbers(numberOne,numberTwo);
-		return convertToDouble(numberOne) - convertToDouble(numberTwo);
+		MathUtils.checkTwoNumbers(numberOne,numberTwo);
+		return MathUtils.convertToDouble(numberOne) - MathUtils.convertToDouble(numberTwo);
 	}
 	
 	@RequestMapping(value = "/dividedBy/{numberOne}/{numberTwo}",method = RequestMethod.GET)	
 	public Double dividedBy(@PathVariable(value = "numberOne") String numberOne,
 					  @PathVariable(value = "numberTwo") String numberTwo){
 		
-		checkTwoNumbers(numberOne,numberTwo);
-		return convertToDouble(numberOne) / convertToDouble(numberTwo);
+		MathUtils.checkTwoNumbers(numberOne,numberTwo);
+		return MathUtils.convertToDouble(numberOne) / MathUtils.convertToDouble(numberTwo);
 	}
 	
 	@RequestMapping(value = "/multipledBy/{numberOne}/{numberTwo}",method = RequestMethod.GET)	
 	public Double multipledBy(@PathVariable(value = "numberOne") String numberOne,
 					  @PathVariable(value = "numberTwo") String numberTwo){
 		
-		checkTwoNumbers(numberOne,numberTwo);
-		return convertToDouble(numberOne) * convertToDouble(numberTwo);
+		MathUtils.checkTwoNumbers(numberOne,numberTwo);
+		return MathUtils.convertToDouble(numberOne) * MathUtils.convertToDouble(numberTwo);
 	}
 	
 	@RequestMapping(value = "/average/{numberOne}/{numberTwo}",method = RequestMethod.GET)	
 	public Double average(@PathVariable(value = "numberOne") String numberOne,
 					  @PathVariable(value = "numberTwo") String numberTwo){
 		
-		checkTwoNumbers(numberOne,numberTwo);
-		return (convertToDouble(numberOne) + convertToDouble(numberTwo)) / 2;
+		MathUtils.checkTwoNumbers(numberOne,numberTwo);
+		return (MathUtils.convertToDouble(numberOne) + MathUtils.convertToDouble(numberTwo)) / 2;
 	}
 	
 	@RequestMapping(value = "/sqrt/{numberOne}",method = RequestMethod.GET)	
 	public Double sqrt(@PathVariable(value = "numberOne") String numberOne){
 		
-		checkSigleNumber(numberOne);
-		return Math.sqrt(convertToDouble(numberOne));
+		MathUtils.checkSigleNumber(numberOne);
+		return Math.sqrt(MathUtils.convertToDouble(numberOne));
 	}
 }

@@ -4,7 +4,7 @@ import br.com.erudio.exception.UnsupportedMathOperationException;
 
 public class MathUtils {
 	
-	public Double convertToDouble(String numberStr) {
+	public static Double convertToDouble(String numberStr) {
 		if(numberStr == null) return 0d;
 		
 		// BR currency 15,5 US is 15.5 -> convert to US currency
@@ -13,7 +13,7 @@ public class MathUtils {
 		return 0d;
 	}
 
-	public boolean isNumeric(String numberStr) {
+	public static boolean isNumeric(String numberStr) {
 		if(numberStr == null) return false;
 		
 		// BR currency 15,5 US is 15.5 -> convert to US currency
@@ -21,12 +21,12 @@ public class MathUtils {
 		return number.matches("[-+]?[0-9]*\\.?[0-9]+");
 	}
 	
-	public void checkSigleNumber(String numberOne) {
+	public static void checkSigleNumber(String numberOne) {
 		// If number = letter or special ($#@!) return new Exception
 		if(!isNumeric(numberOne)) throw new UnsupportedMathOperationException("Please set a numeric value!");		
 	}
 	
-	public void checkTwoNumbers(String numberOne, String numberTwo) {
+	public static void checkTwoNumbers(String numberOne, String numberTwo) {
 		// If number = letter or special ($#@!) return new Exception
 		if(!isNumeric(numberOne) || !isNumeric(numberTwo)) throw new UnsupportedMathOperationException("Please set a numeric value!");		
 	}
